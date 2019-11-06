@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8d9794f3-063b-43c2-bb9a-3f2e4b08601a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Stocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Stocks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Stocks" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1RzuwvQh10HNOLeKywILWCDOSEH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+      <module name="Stocks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8d9794f3-063b-43c2-bb9a-3f2e4b08601a" name="Default Changelist" comment="" />
+      <created>1570682487342</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570682487342</updated>
+      <workItem from="1570682489586" duration="64000" />
+      <workItem from="1570682581045" duration="3745000" />
+      <workItem from="1570769227447" duration="4838000" />
+      <workItem from="1570774542316" duration="1190000" />
+      <workItem from="1570819940434" duration="1898000" />
+      <workItem from="1570846484880" duration="5928000" />
+      <workItem from="1570905802619" duration="6536000" />
+      <workItem from="1571022553368" duration="490000" />
+      <workItem from="1571979025225" duration="3755000" />
+      <workItem from="1572029504825" duration="3664000" />
+      <workItem from="1572058753153" duration="4636000" />
+      <workItem from="1572242225688" duration="6000" />
+    </task>
+    <task id="LOCAL-00001" summary="added a recording file for stock fluctuations">
+      <created>1570691628354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570691628354</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commented api still needing implementation">
+      <created>1570691774413</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1570691774413</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added ability to record stocks">
+      <created>1570774578079</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570774578079</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added ability to record stocks">
+      <created>1570823756139</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570823756139</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added ability to record stocks">
+      <created>1570823864931</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570823864931</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added custom set data type">
+      <created>1570848336290</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1570848336290</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed parsing data in set.parsedata">
+      <created>1570858988349</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570858988349</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added updating functionality to add method">
+      <created>1570859629086</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570859629086</updated>
+    </task>
+    <task id="LOCAL-00009" summary="removed one channel for adding values to value storage">
+      <created>1570908505097</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1570908505097</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added extrema finder">
+      <created>1570918883250</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1570918883250</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added range class, removed extrema analysis">
+      <created>1571981913458</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571981913458</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added a recording file for stock fluxuations" />
+    <MESSAGE value="added a recording file for stock fluctuations" />
+    <MESSAGE value="commented api still needing implementation" />
+    <MESSAGE value="added ability to record stocks" />
+    <MESSAGE value="added custom set data type" />
+    <MESSAGE value="fixed parsing data in set.parsedata" />
+    <MESSAGE value="added updating functionality to add method" />
+    <MESSAGE value="removed one channel for adding values to value storage" />
+    <MESSAGE value="added extrema finder" />
+    <MESSAGE value="added range class, removed extrema analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="added range class, removed extrema analysis" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Stocks$main.coverage" NAME="main Coverage Results" MODIFIED="1572029683480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
