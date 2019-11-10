@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Main {
 
-    private static final double LEARNING_RATE = 0.1;
-    private static final int EPOCHS = 30;
+    private static final double LEARNING_RATE = 0.001;
+    private static final int EPOCHS = 30000;
     private static final int POWER = 1;
 
     private static final String TARGET = "Iris-setosa";
@@ -26,9 +26,15 @@ public class Main {
 //        Graph graph = new Graph(data, NUM_DATA_GROUPS);
 
         Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
-//        perceptron.train(data);
+        perceptron.train(data);
 
-        perceptron.visualTrain(data, NUM_DATA_GROUPS);
+        System.out.println(perceptron.equation());
+//        Thread.sleep(100000);
+
+        System.out.println(perceptron.test(data));
+
+
+//        perceptron.visualTrain(data, NUM_DATA_GROUPS);
 
 //        Graph graph = new Graph(data, 3);
 //        graph.drawLine(graph.generateLine(perceptron.getWeights(), perceptron.getBias()));

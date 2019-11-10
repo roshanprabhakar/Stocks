@@ -62,22 +62,22 @@ public class Perceptron {
     }
 
     private double train(Data trainingData) {
-        System.out.println();
-        System.out.println("------------------------");
+//        System.out.println();
+//        System.out.println("------------------------");
         double guess = guess(trainingData.getVector());
-        System.out.println("training data: " + trainingData.getVector());
-        System.out.println("guess: " + guess);
-        System.out.println("old bias: " + bias);
+//        System.out.println("training data: " + trainingData.getVector());
+//        System.out.println("guess: " + guess);
+//        System.out.println("old bias: " + bias);
         int actual = map(trainingData.getId());
-        System.out.println("actual: " + actual);
+//        System.out.println("actual: " + actual);
         double error = actual - guess;
-        System.out.println("error: " + actual + " - " + guess + " = " + error);
-        System.out.println("old weights: " + weights);
+//        System.out.println("error: " + actual + " - " + guess + " = " + error);
+//        System.out.println("old weights: " + weights);
         weights = weights.add(trainingData.getVector().expand(power).multiplyScalar(error).multiplyScalar(learningRate));
-        System.out.println("new weights: " + weights);
+//        System.out.println("new weights: " + weights);
         bias += error * learningRate;
-        System.out.println("new bias: " + bias);
-        System.out.println("------------------------");
+//        System.out.println("new bias: " + bias);
+//        System.out.println("------------------------");
         return error;
     }
 
@@ -85,7 +85,10 @@ public class Perceptron {
         double correct = 0;
         for (Data data : testData) {
             double guess = guess(data.getVector()); //requires threshold guessing, currently implemented sigmoid
+            if (guess >= 0.5) guess = 1; else if (guess < 0.5) guess = 0;
             int actual = this.map(data.getId());
+//            System.out.println("guess: " + guess);
+//            System.out.println("actual: " + actual);
             if (guess == actual) {
                 correct++;
             }
@@ -94,7 +97,8 @@ public class Perceptron {
     }
 
     public double guess(Vector input) {
-        return sigmoidActivation(weights.cross(input.expand(power)) + bias);
+        double guess = sigmoidActivation(weights.cross(input.expand(power)) + bias);
+        return guess;
     }
 
     public double sigmoidActivation(double guess) {
