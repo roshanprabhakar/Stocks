@@ -26,7 +26,6 @@ public class DataSet {
         }
     }
 
-    //TODO Understand this
     private void combinationUtil(int[] arr, int[] data, int start, int end, int index, int r) {
         if (index == r) {
             ArrayList<Integer> row = new ArrayList<>();
@@ -150,4 +149,18 @@ public class DataSet {
         return lines;
     }
 
+    public static void printSet(ArrayList<Data> dataSet) {
+        String oldTitle = "";
+        for (Data data : dataSet) {
+            if (!oldTitle.equals(data.getId())) {
+                oldTitle = data.getId();
+                System.out.println(oldTitle);
+            }
+            for (int i = 0; i < data.size(); i++) {
+                System.out.print(data.getVector().get(i));
+                if (i < data.size() - 1) System.out.print(", ");
+            }
+            System.out.println();
+        }
+    }
 }

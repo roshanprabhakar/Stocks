@@ -1,22 +1,38 @@
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+import javax.swing.JFrame;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Perceptron {
 
-    private Vector weights;
-    private String classifyFor;
+    private int dataLength;
 
+    private Vector weights;
+    private double bias;
+
+    private String classifyFor;
     private double learningRate;
     private int power;
     private int epochs;
 
     private static final int TIME_OUT = 20;
 
+    private static final String[] visualizableDimensions = {"x", "y", "z", "a"};
+
     public Perceptron(int dataLength, String classifyFor, double learningRate, int epochs, int power) {
         weights = new Vector(dataLength * power);
+        bias = 0;
         this.classifyFor = classifyFor;
         this.learningRate = learningRate;
         this.power = power;
         this.epochs = epochs;
+        this.dataLength = dataLength;
     }
 
     //remove automatic epochs, add manual epochs: gives a numeric success measurement
@@ -29,32 +45,60 @@ public class Perceptron {
         }
     }
 
-    private int train(Data trainingData) {
-        int guess = guess(trainingData.getVector());
+    public void visualTrain(ArrayList<Data> trainingDataSet, int numDataSets) throws InterruptedException {
+        Graph graph = new Graph(trainingDataSet, numDataSets);
+        graph.displayChart();
+        for (int rep = 0; rep < epochs; rep++) {
+            Collections.shuffle(trainingDataSet);
+            for (Data trainingData : trainingDataSet) {
+                graph.mark(trainingData.getVector().get(0), trainingData.getVector().get(1));
+                train(trainingData);
+                graph.drawLine(graph.generateLine(weights, bias));
+                Thread.sleep(1000);
+                graph.clearLine();
+                graph.removeMarker();
+            }
+        }
+    }
+
+    private double train(Data trainingData) {
+        System.out.println();
+        System.out.println("------------------------");
+        double guess = guess(trainingData.getVector());
+        System.out.println("training data: " + trainingData.getVector());
+        System.out.println("guess: " + guess);
+        System.out.println("old bias: " + bias);
         int actual = map(trainingData.getId());
-        int error = actual - guess;
+        System.out.println("actual: " + actual);
+        double error = actual - guess;
+        System.out.println("error: " + actual + " - " + guess + " = " + error);
+        System.out.println("old weights: " + weights);
         weights = weights.add(trainingData.getVector().expand(power).multiplyScalar(error).multiplyScalar(learningRate));
+        System.out.println("new weights: " + weights);
+        bias += error * learningRate;
+        System.out.println("new bias: " + bias);
+        System.out.println("------------------------");
         return error;
     }
 
-    public double test(ArrayList<Data> testData) {
+    public double test(ArrayList<Data> testData) { //obsolete with non thresholding activation
         double correct = 0;
         for (Data data : testData) {
-            int guess = guess(data.getVector());
+            double guess = guess(data.getVector()); //requires threshold guessing, currently implemented sigmoid
             int actual = this.map(data.getId());
-            if (guess == actual) {correct++;}
+            if (guess == actual) {
+                correct++;
+            }
         }
         return correct / testData.size();
     }
 
-    public int guess(Vector input) {
-        return activation(weights.cross(input.expand(power)));
+    public double guess(Vector input) {
+        return sigmoidActivation(weights.cross(input.expand(power)) + bias);
     }
 
-    public int activation(double guess) {
-        if (guess >= 0) {
-            return 1;
-        } else return 0;
+    public double sigmoidActivation(double guess) {
+        return Math.exp(guess) / (Math.exp(guess) + 1);
     }
 
     public int map(String id) {
@@ -66,26 +110,18 @@ public class Perceptron {
         return this.weights;
     }
 
+    public double getBias() {
+        return bias;
+    }
 
-//    //remove automatic epochs, add manual epochs: gives a numeric success measurement
-//    public void train(ArrayList<Data> trainingDataSet) {
-//        double current = 0;
-//        long start = System.currentTimeMillis();
-//        boolean separable = false;
-//        while (current < goal && (separable = !timedOut(start))) {
-//            double perfectCount = 0;
-//            for (Data trainingData : trainingDataSet) {
-//                int error = train(trainingData);
-//                if (error == 0) perfectCount++;
-//            }
-//            current = perfectCount / trainingDataSet.size();
-//        }
-//        this.separable = separable;
-//    }
-//
-//    private boolean timedOut(long start) {
-//        if ((System.currentTimeMillis() - start) / 1000 > TIME_OUT) return true;
-//        return false;
-//    }
-
+    public String equation() {
+        String out = "";
+        for (int i = 0; i < dataLength; i++) {
+            for (int pow = 1; pow <= power; pow++) {
+                System.out.print(weights.get(i * power + pow - 1) + visualizableDimensions[i] + "^" + pow + " + ");
+            }
+        }
+        System.out.println(bias + " = 0");
+        return out;
+    }
 }
