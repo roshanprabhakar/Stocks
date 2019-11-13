@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/META-INF/PerceptronClassifier.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Perceptron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Perceptron.java" afterDir="false" />
     </list>
@@ -21,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1SmCZd7TpbU3lPst57lmnqhKEyX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -37,7 +41,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -95,8 +99,17 @@
       <workItem from="1573332346917" duration="9647000" />
       <workItem from="1573372582816" duration="982000" />
       <workItem from="1573421207308" duration="989000" />
-      <workItem from="1573422713201" duration="788000" />
+      <workItem from="1573422713201" duration="1512000" />
+      <workItem from="1573629111599" duration="1308000" />
     </task>
+    <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
+      <created>1573423645474</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573423645474</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,10 +120,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))" />
   </component>
 </project>

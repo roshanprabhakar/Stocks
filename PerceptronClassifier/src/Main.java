@@ -85,4 +85,12 @@ public class Main {
         System.out.println("success: ");
         System.out.println(perceptron.test(bestDataSet));
     }
+
+    public static boolean isLinearlySeparable(String filepath, String target) {
+        DataSet set = new DataSet(filepath);
+        ArrayList<Data> dataSet = set.getData(0, set.getDataSize());
+
+        Perceptron perceptron = new Perceptron(set.getDataSize(), target, 0.01, 30000, 5);
+        return perceptron.convergeTrain(dataSet, 0.98);
+    }
 }

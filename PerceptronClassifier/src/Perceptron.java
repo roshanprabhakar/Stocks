@@ -1,11 +1,3 @@
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-
-import javax.swing.JFrame;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -45,6 +37,31 @@ public class Perceptron {
         }
     }
 
+    public boolean convergeTrain(ArrayList<Data> trainingDataSet, double percentConvergence) { //true if dataSet is separable
+
+        long start = System.currentTimeMillis();
+        double correct = 0;
+        while (correct / trainingDataSet.size() < percentConvergence && !TIMED_OUT(start, 30)) {
+            correct = 0;
+            this.train(trainingDataSet);
+            for (Data trainingData : trainingDataSet) {
+                int guess = guessNew(trainingData.getVector());
+                int actual = this.map(trainingData.getId());
+                if (actual - guess == 0) {
+                    correct++;
+                }
+            }
+        }
+        if (correct / trainingDataSet.size() >= percentConvergence) return true;
+        return false;
+    }
+
+    private boolean TIMED_OUT(long start, int timeoutCount) {
+        long current = System.currentTimeMillis();
+        if ((current - start) / 1000 > timeoutCount) return true;
+        return false;
+    }
+
     public void visualTrain(ArrayList<Data> trainingDataSet, int numDataSets) throws InterruptedException {
         Graph graph = new Graph(trainingDataSet, numDataSets);
         graph.displayChart();
@@ -61,7 +78,7 @@ public class Perceptron {
         }
     }
 
-    private double train(Data trainingData) {
+    private void train(Data trainingData) {
 //        System.out.println();
 //        System.out.println("------------------------");
         double guess = guess(trainingData.getVector());
@@ -78,7 +95,6 @@ public class Perceptron {
         bias += error * learningRate;
 //        System.out.println("new bias: " + bias);
 //        System.out.println("------------------------");
-        return error;
     }
 
     public double test(ArrayList<Data> testData) { //obsolete with non thresholding activation
@@ -99,6 +115,12 @@ public class Perceptron {
     public double guess(Vector input) {
         double guess = sigmoidActivation(weights.cross(input.expand(power)) + bias);
         return guess;
+    }
+
+    public int guessNew(Vector input) {
+        double guess = guess(input);
+        if (guess >= 0.5) return 1; else if (guess < 0.5) guess = 0;
+        return (int) guess;
     }
 
     public double sigmoidActivation(double guess) {
