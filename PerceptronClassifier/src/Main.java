@@ -8,7 +8,7 @@ public class Main {
 
     private static final double LEARNING_RATE = 0.001;
     private static final int EPOCHS = 30000;
-    private static final int POWER = 1;
+    private static final int POWER = 7;
 
     private static final String TARGET = "Iris-setosa";
     private static final int DATA_LENGTH = 2;
@@ -21,27 +21,29 @@ public class Main {
      */
     public static void main(String[] args) throws InterruptedException {
 
+//        isLinearlySeparable("TestData.txt", TARGET);
+
         DataSet set = new DataSet("TestData.txt");
         ArrayList<Data> data = set.getData(DATA_LENGTH, 0);
 //        Graph graph = new Graph(data, NUM_DATA_GROUPS);
-
+//
         Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
         perceptron.train(data);
-
+//
         System.out.println(perceptron.equation());
 //        Thread.sleep(100000);
-
-        System.out.println(perceptron.test(data));
-
-
-//        perceptron.visualTrain(data, NUM_DATA_GROUPS);
-
-//        Graph graph = new Graph(data, 3);
-//        graph.drawLine(graph.generateLine(perceptron.getWeights(), perceptron.getBias()));
-//        graph.displayChart();
-
-        Thread.sleep(100000);
-        System.exit(0);
+//
+//        System.out.println(perceptron.test(data));
+//
+//
+////        perceptron.visualTrain(data, NUM_DATA_GROUPS);
+//
+////        Graph graph = new Graph(data, 3);
+////        graph.drawLine(graph.generateLine(perceptron.getWeights(), perceptron.getBias()));
+////        graph.displayChart();
+//
+//        Thread.sleep(100000);
+//        System.exit(0);
 
 //        DataSet set = new DataSet("TestData.txt");
 //        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
@@ -56,7 +58,7 @@ public class Main {
 //        System.out.println(perceptron.equation());
     }
 
-    public static void findBestAttributes(String filepath) { //filepath is the data file !!!BROKEN WITH SIGMOID SUCCESS CALCULATOR!!!
+    public static void findBestAttributes(String filepath) throws InterruptedException { //filepath is the data file !!!BROKEN WITH SIGMOID SUCCESS CALCULATOR!!!
         DataSet set = new DataSet(filepath);
         ArrayList<ArrayList<Data>> dataSets = set.getDataSets(); //all sets of length r within length n data where r < n
 
@@ -86,11 +88,12 @@ public class Main {
         System.out.println(perceptron.test(bestDataSet));
     }
 
-    public static boolean isLinearlySeparable(String filepath, String target) {
+    public static boolean isLinearlySeparable(String filepath, String target) throws InterruptedException {
         DataSet set = new DataSet(filepath);
-        ArrayList<Data> dataSet = set.getData(0, set.getDataSize());
+        ArrayList<Data> dataSet = set.getData(2, 0);
 
-        Perceptron perceptron = new Perceptron(set.getDataSize(), target, 0.01, 30000, 5);
-        return perceptron.convergeTrain(dataSet, 0.98);
+        Perceptron perceptron = new Perceptron(2, target, 0.01, 30000, 7);
+        return perceptron.convergeTrain(dataSet, 1);
+//        System.out.println(perceptron.equation());
     }
 }
