@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/monthly_adjusted_MSFT.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" afterDir="false" />
@@ -105,7 +104,7 @@
       <workItem from="1573422713201" duration="1512000" />
       <workItem from="1573629111599" duration="2167000" />
       <workItem from="1573673674313" duration="5459000" />
-      <workItem from="1573702860338" duration="269000" />
+      <workItem from="1573702860338" duration="1583000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -121,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573631338902</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="optimized sigmoid activation">
+      <created>1573703173157</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573703173157</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +150,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))" />
     <MESSAGE value="added a tester for nonlinear separability" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a tester for nonlinear separability" />
+    <MESSAGE value="optimized sigmoid activation" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized sigmoid activation" />
   </component>
 </project>

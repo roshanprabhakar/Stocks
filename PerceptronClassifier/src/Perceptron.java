@@ -54,8 +54,7 @@ public class Perceptron {
 //            System.out.println("current: " + correct / trainingDataSet.size());
 //            System.out.println("needed: " + percentConvergence);
         }
-        if (correct / trainingDataSet.size() >= percentConvergence) return true;
-        return false;
+        return correct / trainingDataSet.size() >= percentConvergence;
     }
 
     public boolean timedOut(long startTime, int timeOut) {

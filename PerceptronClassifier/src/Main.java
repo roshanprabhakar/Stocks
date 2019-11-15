@@ -10,8 +10,10 @@ public class Main {
     private static final int EPOCHS = 30000;
     private static final int POWER = 7;
 
-    private static final String TARGET = "Iris-setosa";
+    private static final String TARGET = "Iris-virginica";
     private static final int DATA_LENGTH = 2;
+
+    private static final double SEPARABLE = 0.95;
 
     //For visualization purposes
     private static final int NUM_DATA_GROUPS = 3;
@@ -21,16 +23,18 @@ public class Main {
      */
     public static void main(String[] args) throws InterruptedException {
 
-//        isLinearlySeparable("TestData.txt", TARGET);
-
         DataSet set = new DataSet("TestData.txt");
-        ArrayList<Data> data = set.getData(DATA_LENGTH, 0);
+        System.out.println(isLinearlySeparable(set.getData(set.getDataSize(), 0), TARGET));
+
+
+//        DataSet set = new DataSet("TestData.txt");
+//        ArrayList<Data> data = set.getData(DATA_LENGTH, 0);
 //        Graph graph = new Graph(data, NUM_DATA_GROUPS);
 //
-        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
-        perceptron.train(data);
+//        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
+//        perceptron.train(data);
 //
-        System.out.println(perceptron.equation());
+//        System.out.println(perceptron.equation());
 //        Thread.sleep(100000);
 //
 //        System.out.println(perceptron.test(data));
@@ -88,12 +92,8 @@ public class Main {
         System.out.println(perceptron.test(bestDataSet));
     }
 
-    public static boolean isLinearlySeparable(String filepath, String target) throws InterruptedException {
-        DataSet set = new DataSet(filepath);
-        ArrayList<Data> dataSet = set.getData(2, 0);
-
+    public static boolean isLinearlySeparable(ArrayList<Data> dataSet, String target) throws InterruptedException {
         Perceptron perceptron = new Perceptron(2, target, 0.01, 30000, 7);
-        return perceptron.convergeTrain(dataSet, 1);
-//        System.out.println(perceptron.equation());
+        return perceptron.convergeTrain(dataSet, SEPARABLE);
     }
 }
