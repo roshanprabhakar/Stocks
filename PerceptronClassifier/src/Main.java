@@ -1,30 +1,20 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.lang.annotation.Target;
 import java.util.ArrayList;
 
-public class Main {
-
-    private static final double LEARNING_RATE = 0.001;
-    private static final int EPOCHS = 30000;
-    private static final int POWER = 7;
-
-    private static final String TARGET = "Iris-virginica";
-    private static final int DATA_LENGTH = 2;
-
-    private static final double SEPARABLE = 0.95;
-
-    //For visualization purposes
-    private static final int NUM_DATA_GROUPS = 3;
+public class Main implements NetworkConstants {
 
     /**
      * Implementation of the perceptron algorithm for making market decisions based on stock data, currently being developed with the Iris DataSet
      */
     public static void main(String[] args) throws InterruptedException {
-
         DataSet set = new DataSet("TestData.txt");
-        System.out.println(isLinearlySeparable(set.getData(set.getDataSize(), 0), TARGET));
+        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
+        perceptron.train(set.getData(set.getDataSize(), 0));
+        System.out.println(perceptron.loss(set.getData(set.getDataSize(), 0)));
+        System.out.println(perceptron.correct(set.getData(set.getDataSize(), 0)));
+//        perceptron.visualizeLoss(set.getData(set.getDataSize(), 0));
+
+//        DataSet set = new DataSet("TestData.txt");
+//        System.out.println(isLinearlySeparable(set.getData(set.getDataSize(), 0), TARGET));
 
 
 //        DataSet set = new DataSet("TestData.txt");
@@ -33,6 +23,8 @@ public class Main {
 //
 //        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
 //        perceptron.train(data);
+
+//        System.out.println(perceptron.loss(data));
 //
 //        System.out.println(perceptron.equation());
 //        Thread.sleep(100000);
@@ -74,7 +66,7 @@ public class Main {
             System.out.println((int) ((((double) i + 1) / dataSets.size()) * 100) + "% completed");
             Perceptron perceptron = new Perceptron(dataSet.get(0).size(), TARGET, LEARNING_RATE, EPOCHS, POWER);
             perceptron.train(dataSet);
-            double success = perceptron.test(dataSet);
+            double success = perceptron.correct(dataSet);
             if (success > bestSuccess) {
                 attributes = set.getPossibleCombinations().get(i);
                 bestDataSet = dataSet;
@@ -89,7 +81,7 @@ public class Main {
         perceptron.train(bestDataSet);
 
         System.out.println("success: ");
-        System.out.println(perceptron.test(bestDataSet));
+        System.out.println(perceptron.correct(bestDataSet));
     }
 
     public static boolean isLinearlySeparable(ArrayList<Data> dataSet, String target) throws InterruptedException {

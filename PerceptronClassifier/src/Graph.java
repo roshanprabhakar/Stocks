@@ -47,7 +47,7 @@ public class Graph {
         }
 
         collection = xySeriesCollection;
-        createChart();
+        chart = createChart(collection);
 
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
         for (int i = 0; i < numDataGroups; i++) {
@@ -59,11 +59,16 @@ public class Graph {
         this.numDataGroups = numDataGroups;
     }
 
-    private void createChart() {
-        this.chart = ChartFactory.createXYLineChart(
+    public Graph() {
+        series = new ArrayList<>();
+        collection = new XYSeriesCollection();
+    }
+
+    public static JFreeChart createChart(XYSeriesCollection collection) {
+        return ChartFactory.createXYLineChart(
                 "Chart" ,
                 "Category" ,
-                "Score" ,
+                "Output" ,
                 collection,
                 PlotOrientation.VERTICAL ,
                 true , true , false);
@@ -87,6 +92,14 @@ public class Graph {
         }
 
         return line;
+    }
+
+    public void addLine(XYSeries series) {
+        collection.addSeries(series);
+    }
+
+    public void addPoint(double x, double y) {
+        collection.getSeries(0).add(x, y);
     }
 
     public void drawLine(XYSeries line) {
@@ -118,11 +131,15 @@ public class Graph {
         collection.removeSeries(numDataGroups);
     }
 
-    public void displayChart() {
+    public static void displayChart(JFreeChart chart) {
         ChartPanel panel = new ChartPanel(chart);
         JFrame frame = new JFrame("Chart Frame");
         frame.getContentPane().add(panel);
         frame.pack();
         frame.setVisible(true);
     }
+
+    public XYSeriesCollection getCollection() {return collection;}
+
+    public JFreeChart getChart() {return chart;}
 }

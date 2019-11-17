@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class DataSet {
 
@@ -100,6 +102,7 @@ public class DataSet {
         for (String line : lines) {
             data.add(getData(line, dataLength, starti));
         }
+        Collections.shuffle(data);
         return data;
     }
 
@@ -108,6 +111,7 @@ public class DataSet {
         for (String line : lines) {
             data.add(getData(line, indices));
         }
+        Collections.shuffle(data);
         return data;
     }
 

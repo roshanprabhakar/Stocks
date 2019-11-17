@@ -1,3 +1,6 @@
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -25,6 +28,34 @@ public class Perceptron {
         this.power = power;
         this.epochs = epochs;
         this.dataLength = dataLength;
+    }
+
+    public void visualizeLoss(ArrayList<Data> trainingData) throws InterruptedException {
+        XYSeries loss = new XYSeries("loss");
+        XYSeries correct = new XYSeries("% correct");
+        XYSeriesCollection collection = new XYSeriesCollection();
+        int iter = 0;
+        for (int rep = 0; rep < epochs; rep++) {
+            loss.add(rep, loss(trainingData));
+            correct.add(rep, correct(trainingData) * 10); //scaled for visuability
+            for (Data data : trainingData) {
+                train(data);
+                iter++;
+            }
+        }
+        collection.addSeries(loss);
+        collection.addSeries(correct);
+        Graph.displayChart(Graph.createChart(collection));
+    }
+
+    public double loss(ArrayList<Data> testData) {
+        double loss = 0;
+        for (Data data : testData) {
+            loss += (map(data.getId()) - guess(data.getVector())) *
+                    (map(data.getId()) - guess(data.getVector()));
+//            System.out.println(loss);
+        }
+        return loss;
     }
 
     //remove automatic epochs, add manual epochs: gives a numeric success measurement
@@ -62,28 +93,39 @@ public class Perceptron {
         else return false;
     }
 
-    private double train(Data trainingData) throws InterruptedException {
-//        System.out.println();
-//        System.out.println("------------------------");
+    private void train(Data trainingData) throws InterruptedException {
         double guess = guess(trainingData.getVector());
-//        System.out.println("training data: " + trainingData.getVector());
-//        System.out.println("guess: " + guess);
-//        System.out.println("old bias: " + bias);
         int actual = map(trainingData.getId());
-//        System.out.println("actual: " + actual);
         double error = actual - guess;
-//        System.out.println("error: " + actual + " - " + guess + " = " + error);
-//        System.out.println("old weights: " + weights);
+//        weights = weights.add(trainingData.getVector().expand(power).multiplyScalar(error));
         weights = weights.add(trainingData.getVector().expand(power).multiplyScalar(error).multiplyScalar(learningRate));
-//        System.out.println("new weights: " + weights);
         bias += error * learningRate;
-//        System.out.println("new bias: " + bias);
-//        System.out.println("------------------------");
-//        Thread.sleep(10000);
-        return error;
     }
 
-    public double test(ArrayList<Data> testData) {
+    private void visualTrain(Data trainingData) throws InterruptedException {
+        System.out.println();
+        System.out.println("------------------------");
+        double guess = guess(trainingData.getVector());
+        System.out.println("guess: " + guess);
+        System.out.println("old bias: " + bias);
+        int actual = map(trainingData.getId());
+        System.out.println("id: " + trainingData.getId());
+        System.out.println("mapped: " + map(trainingData.getId()));
+        System.out.println("actual: " + actual);
+        double error = actual - guess;
+        System.out.println("error: " + actual + " - " + guess + " = " + error);
+        System.out.println("learning rate: " + learningRate);
+        System.out.println("training data: " + trainingData.getVector());
+        System.out.println("old weights: " + weights);
+        weights = weights.add(trainingData.getVector().expand(power).multiplyScalar(error).multiplyScalar(learningRate));
+        System.out.println("new weights: " + weights);
+        bias += error * learningRate;
+        System.out.println("new bias: " + bias);
+        System.out.println("------------------------");
+        Thread.sleep(1000);
+    }
+
+    public double correct(ArrayList<Data> testData) {
         double correct = 0;
         for (Data data : testData) {
             double guess = sigmoidMap(guess(data.getVector()));
@@ -144,7 +186,7 @@ public class Perceptron {
 
     public void visualTrain(ArrayList<Data> trainingDataSet, int numDataSets) throws InterruptedException {
         Graph graph = new Graph(trainingDataSet, numDataSets);
-        graph.displayChart();
+        Graph.displayChart(graph.getChart());
         for (int rep = 0; rep < epochs; rep++) {
             Collections.shuffle(trainingDataSet);
             for (Data trainingData : trainingDataSet) {
