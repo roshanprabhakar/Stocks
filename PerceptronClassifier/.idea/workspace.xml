@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SavedData.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Layer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NetworkConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monthly_adjusted_MSFT.csv" beforeDir="false" afterPath="$PROJECT_DIR$/monthly_adjusted_MSFT.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/DataSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/DataSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Graph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NetworkConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Perceptron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Perceptron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +112,16 @@
       <workItem from="1573796819528" duration="1390000" />
       <workItem from="1573843232854" duration="2017000" />
       <workItem from="1573877913275" duration="4023000" />
-      <workItem from="1573946452359" duration="7343000" />
+      <workItem from="1573946452359" duration="7936000" />
+      <workItem from="1574135947260" duration="1922000" />
+      <workItem from="1574282779451" duration="535000" />
+      <workItem from="1574448498557" duration="124000" />
+      <workItem from="1574453681794" duration="1693000" />
+      <workItem from="1574908207319" duration="1324000" />
+      <workItem from="1575489050171" duration="1646000" />
+      <workItem from="1575605971809" duration="1990000" />
+      <workItem from="1575658046074" duration="1192000" />
+      <workItem from="1576956252498" duration="981000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -148,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573796855794</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="created a network structure to link multiple perceptrons">
+      <created>1573976091396</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573976091396</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +183,7 @@
     <MESSAGE value="added a tester for nonlinear separability" />
     <MESSAGE value="optimized sigmoid activation" />
     <MESSAGE value="created separability checker" />
-    <option name="LAST_COMMIT_MESSAGE" value="created separability checker" />
+    <MESSAGE value="created a network structure to link multiple perceptrons" />
+    <option name="LAST_COMMIT_MESSAGE" value="created a network structure to link multiple perceptrons" />
   </component>
 </project>

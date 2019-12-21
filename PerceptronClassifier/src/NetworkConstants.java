@@ -1,8 +1,8 @@
 public interface NetworkConstants {
 
-    public static final double LEARNING_RATE = 0.001;
-    public static final int EPOCHS = 30000;
-    public static final int POWER = 1;
+    public static final double LEARNING_RATE = 0.0001;
+    public static final int EPOCHS = 3000;
+    public static final int POWER = 2;
 
     public static final String TARGET = "Iris-virginica";
     //    private static final String TARGET = "target";

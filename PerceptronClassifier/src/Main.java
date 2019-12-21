@@ -6,11 +6,19 @@ public class Main implements NetworkConstants {
      * Implementation of the perceptron algorithm for making market decisions based on stock data, currently being developed with the Iris DataSet
      */
     public static void main(String[] args) throws InterruptedException {
+
         DataSet set = new DataSet("TestData.txt");
+        ArrayList<Data> data = set.getData(set.getDataSize(), 0);
         Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
-        perceptron.train(set.getData(set.getDataSize(), 0));
-        System.out.println(perceptron.loss(set.getData(set.getDataSize(), 0)));
-        System.out.println(perceptron.correct(set.getData(set.getDataSize(), 0)));
+        perceptron.visualizeLoss(data);
+
+        Thread.sleep(1000000);
+
+//        DataSet set = new DataSet("TestData.txt");
+//        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
+//        perceptron.train(set.getData(set.getDataSize(), 0));
+//        System.out.println(perceptron.loss(set.getData(set.getDataSize(), 0)));
+//        System.out.println(perceptron.correct(set.getData(set.getDataSize(), 0)));
 //        perceptron.visualizeLoss(set.getData(set.getDataSize(), 0));
 
 //        DataSet set = new DataSet("TestData.txt");

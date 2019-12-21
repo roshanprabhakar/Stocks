@@ -9,17 +9,22 @@ public class NeuralNetwork {
         for (int i = 0; i < layers; i++) {
             network.add(new Layer(neurons));
         }
-
     }
 
-    public Vector guess(Vector input) {
-        Vector current = input;
-        Vector out;
-        for (Layer layer : network) {
-            out = layer.activations(current);
-            current = out.copy();
+    public Vector forwardProp(Vector input) {
+        Vector passed = network.get(0).activations(input);
+        for (int i = 1; i < network.size(); i++) {
+            passed = network.get(i).activations(passed);
         }
-        return current;
+        return passed;
+    }
+
+    public void train(Vector input, Vector correct) {
+        double loss = input.loss(correct);
+    }
+
+    public void updateWeight(int layer, int perceptron, int connection, double shift) {
+        network.get(layer).get(perceptron).shiftWeight(connection, shift);
     }
 
     public Layer get(int i) {

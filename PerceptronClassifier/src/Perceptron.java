@@ -1,6 +1,12 @@
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.util.ShapeUtilities;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -34,17 +40,16 @@ public class Perceptron {
         XYSeries loss = new XYSeries("loss");
         XYSeries correct = new XYSeries("% correct");
         XYSeriesCollection collection = new XYSeriesCollection();
-        int iter = 0;
         for (int rep = 0; rep < epochs; rep++) {
             loss.add(rep, loss(trainingData));
             correct.add(rep, correct(trainingData) * 10); //scaled for visuability
             for (Data data : trainingData) {
                 train(data);
-                iter++;
             }
         }
         collection.addSeries(loss);
         collection.addSeries(correct);
+
         Graph.displayChart(Graph.createChart(collection));
     }
 
@@ -167,6 +172,16 @@ public class Perceptron {
         return this.weights;
     }
 
+    public void shiftWeight(int weight, double shift) {
+        weights.set(weight, weights.get(weight) + shift);
+    }
+
+    public void updateWeight(int weight, double newWeight) {
+        weights.set(weight, newWeight);
+    }
+
+
+
     public double getBias() {
         return bias;
     }
@@ -183,7 +198,6 @@ public class Perceptron {
     }
 
     //VISUALIZATIONS AND TESTING
-
     public void visualTrain(ArrayList<Data> trainingDataSet, int numDataSets) throws InterruptedException {
         Graph graph = new Graph(trainingDataSet, numDataSets);
         Graph.displayChart(graph.getChart());

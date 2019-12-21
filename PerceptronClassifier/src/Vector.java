@@ -51,6 +51,15 @@ public class Vector {
         return v;
     }
 
+    public Vector subtract(Vector other) {
+        Vector copy = this.copy();
+        return subtract(copy, other);
+    }
+
+    public static Vector subtract(Vector v, Vector p) {
+        return v.add(p.multiplyScalar(-1));
+    }
+
     public double cross(Vector other) {
         return cross(this, other);
     }
@@ -76,6 +85,15 @@ public class Vector {
         }
 
         return out;
+    }
+
+    public double loss(Vector correct) {
+        if (correct.size() != this.size()) return Double.MAX_VALUE;
+        double loss = 0;
+        for (int i = 0; i < this.size(); i++) {
+            loss += (correct.get(i) - this.get(i)) * (correct.get(i) - this.get(i));
+        }
+        return loss * (0.5);
     }
 
 //    public double cross(Vector other, int degree) {
@@ -113,4 +131,6 @@ public class Vector {
         out += ")";
         return out;
     }
+
+
 }
