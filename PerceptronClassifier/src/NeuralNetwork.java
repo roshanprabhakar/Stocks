@@ -5,19 +5,24 @@ public class NeuralNetwork implements NetworkConstants {
 
     private ArrayList<Layer> network;
     private int neuronsPerLayer;
+    private int inputSize;
     private int layers;
 
-    public NeuralNetwork(int neurons, int layers) {
+    public NeuralNetwork(int inputSize, int neuronsPerHidden, int numHiddenLayers, int numOutputNeurons) {
         network = new ArrayList<>();
-        for (int i = 0; i < layers; i++) {
-            if (i == 0) network.add(new Layer(neurons, DATA_LENGTH));
-            else network.add(new Layer(neurons, neurons));
+        for (int i = 0; i < numHiddenLayers; i++) {
+            if (i == 0) network.add(new Layer(neuronsPerHidden, inputSize));
+            else network.add(new Layer(neuronsPerHidden, neuronsPerHidden));
         }
 
-        this.neuronsPerLayer = neurons;
-        this.layers = layers;
+        network.add(new Layer(numOutputNeurons, neuronsPerHidden));
+
+        this.inputSize = inputSize;
+        this.neuronsPerLayer = neuronsPerHidden;
+        this.layers = numHiddenLayers;
     }
 
+    //Customized for sigmoid activations active in every neuron
     public ForwardPropOutput forwardProp(Vector input) {
         Vector[] matrix = new Vector[network.size()];
         Vector passed = network.get(0).activations(input);
@@ -26,21 +31,23 @@ public class NeuralNetwork implements NetworkConstants {
             passed = network.get(i).activations(passed);
             matrix[i] = passed.copy();
         }
+
         return new ForwardPropOutput(passed, matrix);
     }
 
     public void train(Vector input, Vector correct) {
         ForwardPropOutput output = forwardProp(input);
         Vector prediction = output.getResultant();
-        double loss = prediction.loss(correct);
-
         Vector[] neuronActivations = output.getIntermediaryMatrix();
+
         Vector[][] imWeights = getWeightDerivatives(neuronActivations, input);
         Vector[][] imLayers = getLayerDerivatives(neuronActivations);
+
+        double loss = prediction.loss(correct);
     }
 
     public Vector[][] getWeightDerivatives(Vector[] neuronActivations, Vector input) {
-        Vector[][] weightDerivatives = new Vector[layers][neuronsPerLayer];
+        Vector[][] weightDerivatives = new Vector[layers][neuronsPerLayer]; //turn this to arraylist of arrays of vectors
         for (int layer = network.size() - 1; layer >= 0; layer--) {
             System.out.println("----------------------------------");
             System.out.println("LAYER: " + layer);
@@ -61,6 +68,9 @@ public class NeuralNetwork implements NetworkConstants {
                         double factor = input.get(weight);
                         pDerivatives.set(weight, Perceptron.sigmoidDerivative(guess) * factor);
                     }
+                } else if (layer == network.size() - 1) {
+
+
 
                 } else {
 
