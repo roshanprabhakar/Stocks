@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class NeuralNetwork implements NetworkConstants {
 
@@ -35,8 +36,7 @@ public class NeuralNetwork implements NetworkConstants {
 
         Vector[] neuronActivations = output.getIntermediaryMatrix();
         Vector[][] imWeights = getWeightDerivatives(neuronActivations, input);
-//        Vector[][] imLayers = getLayerDerivatives(neuronActivations);
-//        System.out.println(Arrays.toString(imLayers));
+        Vector[][] imLayers = getLayerDerivatives(neuronActivations);
     }
 
     public Vector[][] getWeightDerivatives(Vector[] neuronActivations, Vector input) {
@@ -88,9 +88,11 @@ public class NeuralNetwork implements NetworkConstants {
             }
             System.out.println();
         }
+        System.out.println();
         return weightDerivatives;
     }
 
+    //first null layer in return matrix represents the unusability of the loss derivative with respect to the input vector
     public Vector[][] getLayerDerivatives(Vector[] neuronActivations) {
         Vector[][] layerDerivatives = new Vector[layers][neuronsPerLayer];
         for (int layer = network.size() - 1; layer >= 1; layer--) {
@@ -103,6 +105,12 @@ public class NeuralNetwork implements NetworkConstants {
                 }
                 layerDerivatives[layer][neuron] = pDerivatives;
             }
+        }
+        for (int layer = 0; layer < layerDerivatives.length; layer++) {
+            for (int neuron = 0; neuron < layerDerivatives[layer].length; neuron++) {
+                System.out.print(layerDerivatives[layer][neuron] + ",  ");
+            }
+            System.out.println();
         }
         return layerDerivatives;
     }
