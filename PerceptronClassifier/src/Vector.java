@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.function.DoubleToIntFunction;
-
 public class Vector {
 
     private double[] vector;
@@ -14,7 +11,7 @@ public class Vector {
     }
 
 
-    public int size() {
+    public int length() {
         return vector.length;
     }
 
@@ -33,7 +30,7 @@ public class Vector {
     }
 
     public static Vector multiplyScalar(double scalar, Vector v) {
-        for (int i = 0; i < v.size(); i++) {
+        for (int i = 0; i < v.length(); i++) {
             v.set(i, v.get(i) * scalar);
         }
         return v;
@@ -45,7 +42,7 @@ public class Vector {
     }
 
     public static Vector add(Vector v, Vector p) {
-        for (int i = 0; i < v.size(); i++) {
+        for (int i = 0; i < v.length(); i++) {
             v.set(i, v.get(i) + p.get(i));
         }
         return v;
@@ -67,9 +64,9 @@ public class Vector {
     public static double cross(Vector v, Vector p) {
         double sum = 0;
         String out = "";
-        for (int i = 0; i < v.size(); i++) {
+        for (int i = 0; i < v.length(); i++) {
             out += v.get(i) + " * " + p.get(i);
-            if (i != v.size() - 1) out += " + ";
+            if (i != v.length() - 1) out += " + ";
             sum += v.get(i) * p.get(i);
         }
 //        System.out.println(out + " = " + sum);
@@ -77,8 +74,8 @@ public class Vector {
     }
 
     public Vector expand(int power) {
-        Vector out = new Vector(this.size() * power);
-        for (int i = 0; i < size(); i++) {
+        Vector out = new Vector(this.length() * power);
+        for (int i = 0; i < length(); i++) {
             for (int pow = 1; pow <= power; pow++) {
                 out.set(i * power + pow - 1, Math.pow(this.get(i), pow));
             }
@@ -88,9 +85,9 @@ public class Vector {
     }
 
     public double loss(Vector correct) {
-        if (correct.size() != this.size()) return Double.MAX_VALUE;
+        if (correct.length() != this.length()) return Double.MAX_VALUE;
         double loss = 0;
-        for (int i = 0; i < this.size(); i++) {
+        for (int i = 0; i < this.length(); i++) {
             loss += (correct.get(i) - this.get(i)) * (correct.get(i) - this.get(i));
         }
         return loss * (0.5);

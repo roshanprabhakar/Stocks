@@ -143,20 +143,31 @@ public class Perceptron {
     }
 
     public double guess(Vector input) {
+//        System.out.println("input: " + input);
+//        System.out.println("weights: " + weights);
+//        System.out.println("input (expanded): " + input.expand(power));
         return sigmoidActivation(weights.cross(input.expand(power)) + bias);
+    }
+
+    public double unactivatedGuess(Vector input) {
+        return weights.cross(input.expand(power)) + bias;
     }
 
     public double sigmoidActivation(double guess) {
         return sigmoid(guess);
     }
 
-    private double sigmoid(double input) { //capped to prevent overflow error, less exponential calculations
+    public static double sigmoid(double input) { //capped to prevent overflow error, less exponential calculations
         if (input >= 10) {
             return -(1 / (1 + Math.exp(10))) + 1;
         } else if (input <= -10) {
             return -(1 / (1 + Math.exp(-10))) + 1;
         }
         return -(1 / (1 + Math.exp(input))) + 1;
+    }
+
+    public static double sigmoidDerivative(double input) {
+        return sigmoid(input) * (1 - sigmoid(input));
     }
 
     private int sigmoidMap(double error) {
@@ -179,8 +190,6 @@ public class Perceptron {
     public void updateWeight(int weight, double newWeight) {
         weights.set(weight, newWeight);
     }
-
-
 
     public double getBias() {
         return bias;

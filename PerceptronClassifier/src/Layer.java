@@ -2,10 +2,10 @@ public class Layer implements NetworkConstants {
 
     private Perceptron[] neurons;
 
-    public Layer(int n) {
-        neurons = new Perceptron[n];
+    public Layer(int numberOfPerceptrons, int dataLength) {
+        neurons = new Perceptron[numberOfPerceptrons];
         for (int i = 0; i < neurons.length; i++) {
-            neurons[i] = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
+            neurons[i] = new Perceptron(dataLength, TARGET, LEARNING_RATE, EPOCHS, POWER); //data length for networks is just length of activation vector
         }
     }
 
@@ -19,5 +19,9 @@ public class Layer implements NetworkConstants {
             activations.set(i, neurons[i].guess(previous));
         }
         return activations;
+    }
+
+    public int length() {
+        return neurons.length;
     }
 }

@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Data {
 
     private Vector values;
@@ -31,7 +29,7 @@ public class Data {
 //    }
 
     public int size() {
-        return values.size();
+        return values.length();
     }
 
     public String toString() {

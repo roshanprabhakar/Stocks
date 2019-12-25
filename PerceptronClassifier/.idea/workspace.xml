@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ForwardPropOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Vector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NNTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NNTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NetworkConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Perceptron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Perceptron.java" afterDir="false" />
@@ -61,7 +64,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.NNTesting">
     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PerceptronClassifier" />
@@ -71,8 +74,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NNTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="NNTesting" />
+      <module name="PerceptronClassifier" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NNTesting" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -121,7 +132,10 @@
       <workItem from="1575489050171" duration="1646000" />
       <workItem from="1575605971809" duration="1990000" />
       <workItem from="1575658046074" duration="1192000" />
-      <workItem from="1576956252498" duration="981000" />
+      <workItem from="1576956252498" duration="8649000" />
+      <workItem from="1577145661525" duration="3539000" />
+      <workItem from="1577171158919" duration="1345000" />
+      <workItem from="1577232571978" duration="5167000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -158,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573976091396</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added weightage updates">
+      <created>1576957684673</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576957684673</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +205,7 @@
     <MESSAGE value="optimized sigmoid activation" />
     <MESSAGE value="created separability checker" />
     <MESSAGE value="created a network structure to link multiple perceptrons" />
-    <option name="LAST_COMMIT_MESSAGE" value="created a network structure to link multiple perceptrons" />
+    <MESSAGE value="added weightage updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="added weightage updates" />
   </component>
 </project>
