@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NeuralNetwork implements NetworkConstants {
+public class NeuralNetwork implements NetworkConstants { //TODO write output layer calculations with neuron counts different than those of hidden layers
 
     private ArrayList<Layer> network;
     private int neuronsPerLayer;
