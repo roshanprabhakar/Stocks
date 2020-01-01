@@ -47,7 +47,7 @@ public class NeuralNetwork implements NetworkConstants {
         Vector lastLayerDWRTLoss = getDerivativeOfLossWithLastLayer(correct, neuronActivations[neuronActivations.length - 1]);
 
         Vector[] activationDWRTLoss = getLossDWRTactivations(lastLayerDWRTLoss, layerDWRTpreviousLayers);
-        Vector[][] weightDWRTLoss = getWeightDWRTLoss(activationDWRTLoss, weightsDWRTLayers);
+        Vector[][] weightDWRTLoss = getWeightDWRTLoss(activationDWRTLoss, weightsDWRTLayers); //TODO not recognizing the multiple weights of hidden layer 0
 
         System.out.println("COMPLETE DERIVATIVES OF LOSS WITH RESPECT TO EACH INDIVIDUAL WEIGHT");
         for (int layer = 0; layer < layers; layer++) {
@@ -79,7 +79,7 @@ public class NeuralNetwork implements NetworkConstants {
                     guess = network.get(layer).get(neuron).unactivatedGuess(input);
 
                     for (int weight = 0; weight < input.length(); weight++) {
-                        System.out.println("weight: " + weight + ": " + network.get(layer).get(neuron).getWeights().get(weight));
+//                        System.out.println("weight: " + weight + ": " + network.get(layer).get(neuron).getWeights().get(weight));
                         double factor = input.get(weight);
                         pDerivatives.set(weight, Perceptron.sigmoidDerivative(guess) * factor);
                     }
