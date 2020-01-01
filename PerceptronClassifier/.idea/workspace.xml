@@ -2,20 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Vector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NNTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NNTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NetworkConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NetworkData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Perceptron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Perceptron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -137,7 +145,7 @@
       <workItem from="1577311615803" duration="2956000" />
       <workItem from="1577510213110" duration="1297000" />
       <workItem from="1577747806122" duration="9131000" />
-      <workItem from="1577847556862" duration="8480000" />
+      <workItem from="1577847556862" duration="8900000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -216,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577851256902</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="finalized derivative updates for weights and biases">
+      <created>1577873080962</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1577873080962</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +263,7 @@
     <MESSAGE value="added framework for output layer development" />
     <MESSAGE value="finalized process for finding complete derivatives of loss with respect to each weight in the network" />
     <MESSAGE value="added todo for method involving finding complete weight derivatives wrt loss" />
-    <option name="LAST_COMMIT_MESSAGE" value="added todo for method involving finding complete weight derivatives wrt loss" />
+    <MESSAGE value="finalized derivative updates for weights and biases" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalized derivative updates for weights and biases" />
   </component>
 </project>

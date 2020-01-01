@@ -33,6 +33,12 @@ public class NeuralNetwork implements NetworkConstants {
         return new ForwardPropOutput(passed, matrix);
     }
 
+    public void train(ArrayList<NetworkData> data) {
+        for (NetworkData networkData : data) {
+            train(networkData.getInput(), networkData.getCorrect());
+        }
+    }
+
     public void train(Vector input, Vector correct) {
 
         //Finding derivatives of the loss with the individual weights
