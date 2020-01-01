@@ -9,7 +9,7 @@ public class Main implements NetworkConstants {
 
         DataSet set = new DataSet("TestData.txt");
         ArrayList<Data> data = set.getData(set.getDataSize(), 0);
-        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER);
+        Perceptron perceptron = new Perceptron(DATA_LENGTH, TARGET, LEARNING_RATE, EPOCHS, POWER, false);
         perceptron.visualizeLoss(data);
 
         Thread.sleep(1000000);
@@ -72,7 +72,7 @@ public class Main implements NetworkConstants {
         for (int i = 0; i < dataSets.size(); i++) {
             ArrayList<Data> dataSet = dataSets.get(i);
             System.out.println((int) ((((double) i + 1) / dataSets.size()) * 100) + "% completed");
-            Perceptron perceptron = new Perceptron(dataSet.get(0).size(), TARGET, LEARNING_RATE, EPOCHS, POWER);
+            Perceptron perceptron = new Perceptron(dataSet.get(0).size(), TARGET, LEARNING_RATE, EPOCHS, POWER, false);
             perceptron.train(dataSet);
             double success = perceptron.correct(dataSet);
             if (success > bestSuccess) {
@@ -85,7 +85,7 @@ public class Main implements NetworkConstants {
         System.out.println("best attributes: ");
         System.out.println(attributes);
 
-        Perceptron perceptron = new Perceptron(attributes.size(), TARGET, LEARNING_RATE, EPOCHS, POWER);
+        Perceptron perceptron = new Perceptron(attributes.size(), TARGET, LEARNING_RATE, EPOCHS, POWER, false);
         perceptron.train(bestDataSet);
 
         System.out.println("success: ");
@@ -93,7 +93,7 @@ public class Main implements NetworkConstants {
     }
 
     public static boolean isLinearlySeparable(ArrayList<Data> dataSet, String target) throws InterruptedException {
-        Perceptron perceptron = new Perceptron(2, target, 0.01, 30000, 7);
+        Perceptron perceptron = new Perceptron(2, target, 0.01, 30000, 7, false);
         return perceptron.convergeTrain(dataSet, SEPARABLE);
     }
 }

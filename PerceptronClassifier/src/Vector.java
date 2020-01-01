@@ -10,6 +10,13 @@ public class Vector {
         this.vector = new double[i];
     }
 
+    public Vector(int i, boolean random) {
+        this.vector = new double[i];
+        for (int j = 0; j < vector.length; j++) {
+            vector[j] = Math.random();
+        }
+    }
+
 
     public int length() {
         return vector.length;
@@ -30,10 +37,11 @@ public class Vector {
     }
 
     public static Vector multiplyScalar(double scalar, Vector v) {
+        Vector out = v.copy();
         for (int i = 0; i < v.length(); i++) {
-            v.set(i, v.get(i) * scalar);
+            out.set(i, out.get(i) * scalar);
         }
-        return v;
+        return out;
     }
 
     public Vector add(Vector other) {
@@ -42,10 +50,11 @@ public class Vector {
     }
 
     public static Vector add(Vector v, Vector p) {
+        Vector out = new Vector(v.length());
         for (int i = 0; i < v.length(); i++) {
-            v.set(i, v.get(i) + p.get(i));
+            out.set(i, v.get(i) + p.get(i));
         }
-        return v;
+        return out;
     }
 
     public Vector subtract(Vector other) {
@@ -57,11 +66,11 @@ public class Vector {
         return v.add(p.multiplyScalar(-1));
     }
 
-    public double cross(Vector other) {
-        return cross(this, other);
+    public double dotProduct(Vector other) {
+        return dotProduct(this, other);
     }
 
-    public static double cross(Vector v, Vector p) {
+    public static double dotProduct(Vector v, Vector p) {
         double sum = 0;
         String out = "";
         for (int i = 0; i < v.length(); i++) {
@@ -71,6 +80,10 @@ public class Vector {
         }
 //        System.out.println(out + " = " + sum);
         return sum;
+    }
+
+    public static double multiply(Vector v, Vector p) {
+        return dotProduct(v, p);
     }
 
     public Vector expand(int power) {

@@ -1,12 +1,6 @@
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import org.jfree.util.ShapeUtilities;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -26,9 +20,16 @@ public class Perceptron {
 
     private static final String[] visualizableDimensions = {"x", "y", "z", "a"};
 
-    public Perceptron(int dataLength, String classifyFor, double learningRate, int epochs, int power) {
-        weights = new Vector(dataLength * power);
-        bias = 0;
+    public Perceptron(int dataLength, String classifyFor, double learningRate, int epochs, int power, boolean randomInitializations) {
+
+        if (randomInitializations) {
+            weights = new Vector(dataLength * power, true); //don't want to replace vector initializations everywhere, just created a second constructor
+            bias = Math.random();
+        } else {
+            weights = new Vector(dataLength * power);
+            bias = 0;
+        }
+
         this.classifyFor = classifyFor;
         this.learningRate = learningRate;
         this.power = power;
@@ -146,11 +147,11 @@ public class Perceptron {
 //        System.out.println("input: " + input);
 //        System.out.println("weights: " + weights);
 //        System.out.println("input (expanded): " + input.expand(power));
-        return sigmoidActivation(weights.cross(input.expand(power)) + bias);
+        return sigmoidActivation(weights.dotProduct(input.expand(power)) + bias);
     }
 
     public double unactivatedGuess(Vector input) {
-        return weights.cross(input.expand(power)) + bias;
+        return weights.dotProduct(input.expand(power)) + bias;
     }
 
     public double sigmoidActivation(double guess) {
@@ -158,10 +159,10 @@ public class Perceptron {
     }
 
     public static double sigmoid(double input) { //capped to prevent overflow error, less exponential calculations
-        if (input >= 10) {
-            return -(1 / (1 + Math.exp(10))) + 1;
-        } else if (input <= -10) {
-            return -(1 / (1 + Math.exp(-10))) + 1;
+        if (input >= 13) {
+            return -(1 / (1 + Math.exp(13))) + 1;
+        } else if (input <= -13) {
+            return -(1 / (1 + Math.exp(-13))) + 1;
         }
         return -(1 / (1 + Math.exp(input))) + 1;
     }

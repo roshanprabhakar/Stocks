@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Perceptron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PerceptronClassifier/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PerceptronClassifier/Vector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NNTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NNTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NetworkConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Perceptron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Perceptron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +136,11 @@
       <workItem from="1576956252498" duration="8649000" />
       <workItem from="1577145661525" duration="3539000" />
       <workItem from="1577171158919" duration="1345000" />
-      <workItem from="1577232571978" duration="6726000" />
+      <workItem from="1577232571978" duration="7482000" />
+      <workItem from="1577311615803" duration="2956000" />
+      <workItem from="1577510213110" duration="1297000" />
+      <workItem from="1577747806122" duration="9131000" />
+      <workItem from="1577847556862" duration="3446000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -186,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577245956223</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added framework for output layer development">
+      <created>1577247171617</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1577247171617</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +234,7 @@
     <MESSAGE value="added weightage updates" />
     <MESSAGE value="partial derivative calculator generalized for n layers of n perceptrons" />
     <MESSAGE value="generalized partial derivatives dLn/dL(n-1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="generalized partial derivatives dLn/dL(n-1)" />
+    <MESSAGE value="added framework for output layer development" />
+    <option name="LAST_COMMIT_MESSAGE" value="added framework for output layer development" />
   </component>
 </project>

@@ -2,11 +2,11 @@ public interface NetworkConstants {
 
     double LEARNING_RATE = 0.0001;
     int EPOCHS = 3000;
-    int POWER = 1;
+    int POWER = 1; //powers > 1 passable only to single l&n perceptrons
 
     String TARGET = "Iris-virginica";
     //private static final String TARGET = "target";
-    int DATA_LENGTH = 5;
+    int DATA_LENGTH = 2;
 
     double SEPARABLE = 0.95;
 
