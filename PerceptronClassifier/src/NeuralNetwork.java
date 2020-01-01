@@ -1,4 +1,3 @@
-import java.beans.PropertyChangeListenerProxy;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,14 +8,12 @@ public class NeuralNetwork implements NetworkConstants {
     private int inputSize; //unused but probably necessary
     private int layers;
 
-    public NeuralNetwork(int inputSize, int neuronsPerHidden, int numHiddenLayers, int numOutputNeurons) {
+    public NeuralNetwork(int inputSize, int neuronsPerHidden, int numHiddenLayers) { //TODO solve output layers
         network = new ArrayList<>();
         for (int i = 0; i < numHiddenLayers; i++) {
             if (i == 0) network.add(new Layer(neuronsPerHidden, inputSize));
             else network.add(new Layer(neuronsPerHidden, neuronsPerHidden));
         }
-
-//        network.add(new Layer(numOutputNeurons, neuronsPerHidden));
 
         this.inputSize = inputSize;
         this.neuronsPerLayer = neuronsPerHidden;
@@ -37,17 +34,21 @@ public class NeuralNetwork implements NetworkConstants {
     }
 
     public void train(Vector input, Vector correct) {
+
+        //Finding derivatives of the loss with the individual weights
         ForwardPropOutput output = forwardProp(input);
-        Vector prediction = output.getResultant();
+        Vector prediction = output.getResultant(); //needed for calculating loss
         Vector[] neuronActivations = output.getIntermediaryMatrix();
 
         Vector[][] weightsDWRTLayers = getWeightDerivatives(neuronActivations, input);
-//        Double[][] imBiases = getBiasDerivatives(neuronActivations, input); //TODO debug this
+        Double[][] biasDWRTLayers = getBiasDerivatives(neuronActivations, input);
         Vector[][] layerDWRTpreviousLayers = getLayerDerivatives(neuronActivations);
-        Vector lastLayerDWRTLoss = getDerivativeOfLossWithLastLayer(correct, neuronActivations[neuronActivations.length - 1]);
+        Vector lastLayerDWRTLoss = getLossDWRTLastLayer(correct, neuronActivations[neuronActivations.length - 1]);
 
         Vector[] activationDWRTLoss = getLossDWRTactivations(lastLayerDWRTLoss, layerDWRTpreviousLayers);
-        Vector[][] weightDWRTLoss = getWeightDWRTLoss(activationDWRTLoss, weightsDWRTLayers); //TODO not recognizing the multiple weights of hidden layer 0
+        Vector[][] weightDWRTLoss = getWeightDWRTLoss(activationDWRTLoss, weightsDWRTLayers);
+        Double[][] biasDWRTLoss = getBiasDWRTLoss(activationDWRTLoss, biasDWRTLayers);
+
 
         System.out.println("COMPLETE DERIVATIVES OF LOSS WITH RESPECT TO EACH INDIVIDUAL WEIGHT");
         for (int layer = 0; layer < layers; layer++) {
@@ -55,14 +56,36 @@ public class NeuralNetwork implements NetworkConstants {
             for (int neuron = 0; neuron < neuronsPerLayer; neuron++) {
                 System.out.println("----------------- NEURON: " + neuron + " -----------------");
                 for (int weight = 0; weight < network.get(layer).get(neuron).getWeights().length(); weight++) {
-                    System.out.println(network.get(layer).get(neuron).getWeights().get(weight));
+                    System.out.println(weightDWRTLoss[layer][neuron].get(weight));
                 }
             }
         }
+        System.out.println();
+
+        System.out.println("COMPLETE DERIVATIVES OF LOSS WITH RESPECT TO EACH INDIVIDUAL BIAS");
+        for (int layer = 0; layer < layers; layer++) {
+            System.out.println("----------------- LAYER: " + layer + " -----------------");
+            for (int neuron = 0; neuron < neuronsPerLayer; neuron++) {
+                System.out.println("----------------- NEURON: " + neuron + " -----------------");
+                System.out.println(biasDWRTLoss[layer][neuron]);
+            }
+        }
+
+        displayWeightsAndBiases();
+
+        //update weights and biases
+        for (int layer = 0; layer < layers; layer++) {
+            for (int neuron = 0; neuron < neuronsPerLayer; neuron++) {
+                network.get(layer).get(neuron).getWeights().concat(weightDWRTLoss[layer][neuron].multiplyScalar(-1));
+                network.get(layer).get(neuron).updateBias(network.get(layer).get(neuron).getBias() - biasDWRTLoss[layer][neuron]);
+            }
+        }
+
+        displayWeightsAndBiases();
     }
 
     public Vector[][] getWeightDerivatives(Vector[] neuronActivations, Vector input) {
-        Vector[][] weightDerivatives = new Vector[layers][neuronsPerLayer]; //turn this to arraylist of arrays of vectors
+        Vector[][] weightDerivatives = new Vector[layers][neuronsPerLayer];
         for (int layer = network.size() - 1; layer >= 0; layer--) {
             System.out.println("----------------------------------");
             System.out.println("LAYER: " + layer);
@@ -79,7 +102,7 @@ public class NeuralNetwork implements NetworkConstants {
                     guess = network.get(layer).get(neuron).unactivatedGuess(input);
 
                     for (int weight = 0; weight < input.length(); weight++) {
-//                        System.out.println("weight: " + weight + ": " + network.get(layer).get(neuron).getWeights().get(weight));
+                        System.out.println("weight: " + weight + ": " + network.get(layer).get(neuron).getWeights().get(weight));
                         double factor = input.get(weight);
                         pDerivatives.set(weight, Perceptron.sigmoidDerivative(guess) * factor);
                     }
@@ -112,6 +135,7 @@ public class NeuralNetwork implements NetworkConstants {
             System.out.println();
         }
         System.out.println();
+        System.out.println("--------------------------------------------------------------------------------------");
         return weightDerivatives;
     }
 
@@ -122,6 +146,7 @@ public class NeuralNetwork implements NetworkConstants {
         for (int layer = network.size() - 1; layer >= 1; layer--) {
             System.out.println("----------------------------------");
             System.out.println("LAYER: " + layer);
+            System.out.println();
             System.out.println("----------------------------------");
             for (int neuron = 0; neuron < network.get(layer).length(); neuron++) {
                 Vector pDerivatives = new Vector(neuronsPerLayer);
@@ -132,6 +157,7 @@ public class NeuralNetwork implements NetworkConstants {
 
                 }
                 System.out.println("layer: " + layer + " neuron: " + neuron + ": " + pDerivatives);
+                System.out.println();
                 layerDerivatives[layer][neuron] = pDerivatives;
             }
         }
@@ -142,6 +168,7 @@ public class NeuralNetwork implements NetworkConstants {
             System.out.println();
         }
         System.out.println();
+        System.out.println("--------------------------------------------------------------------------------------");
         return layerDerivatives;
     }
 
@@ -168,7 +195,7 @@ public class NeuralNetwork implements NetworkConstants {
         return biasDerivatives;
     }
 
-    public Vector getDerivativeOfLossWithLastLayer(Vector actual, Vector prediction) { //derivatives calculated for MSE
+    public Vector getLossDWRTLastLayer(Vector actual, Vector prediction) { //derivatives calculated for MSE
         Vector out = new Vector(actual.length());
         for (int i = 0; i < out.length(); i++) {
             out.set(i, -(actual.get(i) - prediction.get(i)));
@@ -217,8 +244,29 @@ public class NeuralNetwork implements NetworkConstants {
         return weightDWRTLoss;
     }
 
-    public void updateWeight(int layer, int perceptron, int connection, double shift) {
-        network.get(layer).get(perceptron).shiftWeight(connection, shift);
+    public Double[][] getBiasDWRTLoss(Vector[] activationDWRTLoss, Double[][] biasDWRTactivations) {
+        Double[][] biasDWRTLoss = new Double[layers][neuronsPerLayer];
+        for (int layer = 0; layer < layers; layer++) {
+            for (int neuron = 0; neuron < neuronsPerLayer; neuron++) {
+                biasDWRTLoss[layer][neuron] = biasDWRTactivations[layer][neuron] * activationDWRTLoss[layer].get(neuron);
+            }
+        }
+        return biasDWRTLoss;
+    }
+
+    public void displayWeightsAndBiases() {
+        for (int i = 0; i < 5; i++) System.out.println();
+        System.out.println("DISPLAYING WEIGHTS");
+        for (int layer = 0; layer < layers; layer++) {
+            System.out.println("---------------------------");
+            System.out.println("LAYER: " + layer);
+            System.out.println("---------------------------");
+            for (int neuron = 0; neuron < neuronsPerLayer; neuron++) {
+                System.out.println("NEURON: " + neuron);
+                System.out.println("WEIGHTS: " + network.get(layer).get(neuron).getWeights());
+                System.out.println("BIAS: " + network.get(layer).get(neuron).getBias());
+            }
+        }
     }
 
     public Perceptron getPerceptron(int layer, int perceptron) {

@@ -196,6 +196,10 @@ public class Perceptron {
         return bias;
     }
 
+    public void updateBias(double newBias) {
+        this.bias = newBias;
+    }
+
     public String equation() {
         String out = "";
         for (int i = 0; i < dataLength; i++) {

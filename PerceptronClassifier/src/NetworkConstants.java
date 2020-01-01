@@ -1,6 +1,6 @@
 public interface NetworkConstants {
 
-    double LEARNING_RATE = 0.0001;
+    double LEARNING_RATE = 1;
     int EPOCHS = 3000;
     int POWER = 1; //powers > 1 passable only to single l&n perceptrons
 

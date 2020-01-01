@@ -49,6 +49,12 @@ public class Vector {
         return add(copy, other);
     }
 
+    public void concat(Vector other) {
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] += other.get(i);
+        }
+    }
+
     public static Vector add(Vector v, Vector p) {
         Vector out = new Vector(v.length());
         for (int i = 0; i < v.length(); i++) {
