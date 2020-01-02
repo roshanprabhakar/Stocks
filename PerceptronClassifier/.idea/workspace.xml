@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/NetworkData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +144,8 @@
       <workItem from="1577311615803" duration="2956000" />
       <workItem from="1577510213110" duration="1297000" />
       <workItem from="1577747806122" duration="9131000" />
-      <workItem from="1577847556862" duration="8900000" />
+      <workItem from="1577847556862" duration="9161000" />
+      <workItem from="1577918129412" duration="1260000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -231,7 +231,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577873080962</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added generalized training for multiple inputs">
+      <created>1577873348382</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1577873348382</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added appropriate goal markers">
+      <created>1577873407858</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1577873407858</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +278,8 @@
     <MESSAGE value="finalized process for finding complete derivatives of loss with respect to each weight in the network" />
     <MESSAGE value="added todo for method involving finding complete weight derivatives wrt loss" />
     <MESSAGE value="finalized derivative updates for weights and biases" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalized derivative updates for weights and biases" />
+    <MESSAGE value="added generalized training for multiple inputs" />
+    <MESSAGE value="added appropriate goal markers" />
+    <option name="LAST_COMMIT_MESSAGE" value="added appropriate goal markers" />
   </component>
 </project>
