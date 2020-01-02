@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c99a8ab7-ae11-4a08-a65d-1ca6657348d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NNTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NNTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Stocks/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stocks/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Stocks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stocks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Stocks/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Stocks/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +38,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -145,7 +155,7 @@
       <workItem from="1577510213110" duration="1297000" />
       <workItem from="1577747806122" duration="9131000" />
       <workItem from="1577847556862" duration="9161000" />
-      <workItem from="1577918129412" duration="1260000" />
+      <workItem from="1577918129412" duration="8070000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -245,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577873407858</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added appropriate goal markers">
+      <created>1577930554208</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1577930554208</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -53,9 +53,10 @@ class Set:
         old_range = copy.copy(self.range)
         self.calibrate()
 
-        if self.analyze(data['latestPrice'], diff_from_mean, dist_from_std_dev, old_range, self.range):
-            report.send()
+        # if self.analyze(data['latestPrice'], diff_from_mean, dist_from_std_dev, old_range, self.range):
+        #     report.send()
 
+    # analyzing data, only works with nonzero sized data
     def analyze(self, price, diff_from_mean, dist_from_std_dev, old_range, new_range):
         send = False
 
@@ -296,6 +297,9 @@ def main():
     add_symbol("CMG")
     add_symbol("COST")
     add_symbol("FSCT")
+    add_symbol("NKTR")
+    add_symbol("GOOG")
+    add_symbol("MSFT")
 
     map = {}
     for sym in symbols:
