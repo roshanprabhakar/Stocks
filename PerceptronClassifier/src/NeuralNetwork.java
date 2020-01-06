@@ -86,12 +86,12 @@ public class NeuralNetwork implements NetworkConstants { //TODO write output lay
 //        displayWeightsAndBiases();
 //
         //update weights and biases
-//        for (int layer = 0; layer < layers; layer++) {
-//            for (int neuron = 0; neuron < neuronsPerHiddenLayer; neuron++) {
-//                network.get(layer).get(neuron).getWeights().concat(weightDWRTLoss.get(layer)[neuron].multiplyScalar(-1));
-//                network.get(layer).get(neuron).updateBias(network.get(layer).get(neuron).getBias() - biasDWRTLoss.get(layer)[neuron]);
-//            }
-//        }
+        for (int layer = 0; layer < layers; layer++) {
+            for (int neuron = 0; neuron < neuronsPerHiddenLayer; neuron++) {
+                network.get(layer).get(neuron).getWeights().concat(weightDWRTLoss.get(layer)[neuron].multiplyScalar(-1));
+                network.get(layer).get(neuron).updateBias(network.get(layer).get(neuron).getBias() - biasDWRTLoss.get(layer)[neuron]);
+            }
+        }
 //
 //        displayWeightsAndBiases();
     }
