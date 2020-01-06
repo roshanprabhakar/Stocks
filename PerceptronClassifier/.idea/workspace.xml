@@ -5,9 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NNTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NNTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stocks/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stocks/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Stocks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stocks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stocks/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Stocks/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Stocks/Stocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Stocks/Stocks.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +154,11 @@
       <workItem from="1577510213110" duration="1297000" />
       <workItem from="1577747806122" duration="9131000" />
       <workItem from="1577847556862" duration="9161000" />
-      <workItem from="1577918129412" duration="8070000" />
+      <workItem from="1577918129412" duration="11505000" />
+      <workItem from="1577998095725" duration="4954000" />
+      <workItem from="1578103358007" duration="145000" />
+      <workItem from="1578180080778" duration="1311000" />
+      <workItem from="1578287463770" duration="5205000" />
     </task>
     <task id="LOCAL-00001" summary="improved guess method (threshed guess to above and below 0.5 (median sigmoid value))">
       <created>1573423645474</created>
@@ -262,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577930554208</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added output layer node calculations for most derivative methods">
+      <created>1577938792749</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1577938792749</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +307,7 @@
     <MESSAGE value="finalized derivative updates for weights and biases" />
     <MESSAGE value="added generalized training for multiple inputs" />
     <MESSAGE value="added appropriate goal markers" />
-    <option name="LAST_COMMIT_MESSAGE" value="added appropriate goal markers" />
+    <MESSAGE value="added output layer node calculations for most derivative methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added output layer node calculations for most derivative methods" />
   </component>
 </project>
